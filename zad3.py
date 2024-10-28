@@ -34,12 +34,12 @@ def zad3_4():
         else:
             print("Kończenie programu")
 
-def zad3_5(lenght):
+def zad3_5(length):
     line = ""
     numbers = ""
-    for i in range(lenght + 1):
-        line += "|...." if i < lenght else "|"
-    for i in range(lenght + 1):
+    for i in range(length + 1):
+        line += "|...." if i < length else "|"
+    for i in range(length + 1):
         if i != 9:
             numbers += str(i).ljust(5)
         else:
@@ -98,3 +98,5 @@ def zad3_10():
     roman_to_arab3 = dict(zip(romans, values))
 
     return roman_to_arab, roman_to_arab2, roman_to_arab3
+
+print(zad3_5(12))
