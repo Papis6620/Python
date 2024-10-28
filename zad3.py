@@ -98,5 +98,3 @@ def zad3_10():
     roman_to_arab3 = dict(zip(romans, values))
 
     return roman_to_arab, roman_to_arab2, roman_to_arab3
-
-print(zad3_5(12))
