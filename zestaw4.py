@@ -92,5 +92,3 @@ def flatten(sequence):
         else:
             L.append(item)
     return L
-
-print(make_grid(1, 1))
