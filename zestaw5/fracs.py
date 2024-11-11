@@ -64,7 +64,7 @@ def frac2float(frac):                   # konwersja do float
         return 0
     return frac[0] / frac[1]
 
-def frac_check(frac):
+def frac_check(frac):                   # sprawdzenie czy ułamek jest poprawny i zamiana ujemnego ułamka na [-x,y]
     if not isinstance(frac, list) or len(frac) != 2:
         raise ValueError("Ułamek musi być listą z dwoma wartościami")
 
