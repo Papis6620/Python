@@ -26,5 +26,5 @@ class Rectangle:
         return abs(self.pt1.x - self.pt2.x) * abs(self.pt1.y - self.pt2.y)
 
     def move(self, x, y):           # przesunięcie o (x, y)
-        self.pt1 += Point(x, y)
-        self.pt2 += Point(x, y)
+        self.pt1 = self.pt1 + Point(x, y)
+        self.pt2 = self.pt2 + Point(x, y)

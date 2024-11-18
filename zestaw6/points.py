@@ -33,7 +33,7 @@ class Point:
         return self.x * other.y - self.y * other.x
 
     def length(self):               # długość wektora
-        return math.sqrt(pow(self.x, 2) + pow(self.y, 2))
+        return math.sqrt(self.x**2 + self.y**2)
 
     def __hash__(self):
         return hash((self.x, self.y))   # bazujemy na tuple, immutable points
