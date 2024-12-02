@@ -1,6 +1,6 @@
 import unittest
 from rectangle import Rectangle
-from points import Point
+from zestaw7.points import Point
 
 class TestRectangle(unittest.TestCase):
 
