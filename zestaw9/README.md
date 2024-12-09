@@ -14,7 +14,7 @@ This is a simple implementation of the classic Pong game written in Python using
     Left Arrow: Move paddle left.
     Right Arrow: Move paddle right.
 
-### - 2 Player Mode:
+### - 2 Players Mode:
 
     Player 1 (Top Paddle):
         Left Arrow: Move paddle left.
