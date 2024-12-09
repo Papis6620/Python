@@ -9,12 +9,12 @@ This is a simple implementation of the classic Pong game written in Python using
 
 ## Controls
 
-### -1 Player Mode:
+### - 1 Player Mode:
 
     Left Arrow: Move paddle left.
     Right Arrow: Move paddle right.
 
-### -2 Player Mode:
+### - 2 Player Mode:
 
     Player 1 (Top Paddle):
         Left Arrow: Move paddle left.
@@ -23,6 +23,6 @@ This is a simple implementation of the classic Pong game written in Python using
         A: Move paddle left.
         D: Move paddle right.
 
-### -Universal Control:
+### - Universal Control:
 
     Q: Quit the game.
