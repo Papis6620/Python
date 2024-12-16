@@ -19,7 +19,7 @@ def play(user_choice):
     result_label.config(text=result)
 
 root = tk.Tk()
-root.title("Papier-Kamień-Nożyce")
+root.title("Papier Kamień Nożyce")
 
 title_label = tk.Label(root, text="Wybierz Papier, Kamień lub Nożyce", font=("Arial", 16))
 user_label = tk.Label(root, text="Twój wybór: ", font=("Arial", 14))
