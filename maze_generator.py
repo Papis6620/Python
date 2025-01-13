@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tkinter as tk
 from tkinter import simpledialog, messagebox, filedialog
-
 import pickle
 
 WIDTH, HEIGHT = 5, 5
@@ -11,15 +10,21 @@ WIDTH, HEIGHT = 5, 5
 LEFT, RIGHT, TOP, BOTTOM = (-1, 0), (1, 0), (0, -1), (0, 1)
 directions = [LEFT, RIGHT, TOP, BOTTOM]
 
+
 def get_maze_size():
+    """Prompt the user to enter the maze dimensions."""
+
     global WIDTH, HEIGHT
     root = tk.Tk()
     root.withdraw()
 
-    WIDTH = simpledialog.askinteger("Maze size", "Enter maze width:", minvalue= 5)
-    HEIGHT = simpledialog.askinteger("Maze size", "Enter maze height:", minvalue= 5)
+    WIDTH = simpledialog.askinteger("Maze size", "Enter maze width:", minvalue=5)
+    HEIGHT = simpledialog.askinteger("Maze size", "Enter maze height:", minvalue=5)
+
 
 def initialize_maze():
+    """Initialize the maze with all walls intact."""
+
     grid = np.zeros((HEIGHT, WIDTH), int)
     horizontal_walls = np.ones((HEIGHT + 1, WIDTH), dtype=bool)
     vertical_walls = np.ones((HEIGHT, WIDTH + 1), dtype=bool)
@@ -27,11 +32,14 @@ def initialize_maze():
     vertical_walls[HEIGHT - 1][WIDTH] = False
     return grid, horizontal_walls, vertical_walls
 
+
 def generate_maze(grid, horizontal_walls, vertical_walls):
+    """Generate the maze using a DFS algorithm."""
+
     visited_cells = 1
     total_cells = HEIGHT * WIDTH
     stack = []
-    currentX, currentY = WIDTH // 2, HEIGHT // 2
+    currentX, currentY = 0, 0
     grid[currentY][currentX] = 1
 
     while visited_cells < total_cells:
@@ -62,7 +70,10 @@ def generate_maze(grid, horizontal_walls, vertical_walls):
         if not moved:
             currentX, currentY = stack.pop()
 
+
 def visualize_maze(horizontal_walls, vertical_walls):
+    """Visualize the maze using matplotlib."""
+
     fig, ax = plt.subplots(figsize=(8, 8))
 
     for y in range(HEIGHT + 1):
@@ -82,14 +93,20 @@ def visualize_maze(horizontal_walls, vertical_walls):
     plt.gca().invert_yaxis()
     plt.show()
 
+
 def save_maze(horizontal_walls, vertical_walls):
+    """Save the maze to a .maze file."""
+
     file_path = filedialog.asksaveasfilename(defaultextension=".maze", filetypes=[("Maze Files", "*.maze")])
     if file_path:
         with open(file_path, 'wb') as file:
             pickle.dump((WIDTH, HEIGHT, horizontal_walls, vertical_walls), file)
         messagebox.showinfo("Save Maze", "Maze saved successfully!")
 
+
 def load_maze():
+    """Load the maze from a .maze file."""
+
     global WIDTH, HEIGHT
     file_path = filedialog.askopenfilename(filetypes=[("Maze Files", "*.maze")])
     if file_path:
@@ -100,11 +117,15 @@ def load_maze():
 
 
 def main_menu():
+    """Display the main menu for the maze generator application."""
+
     root = tk.Tk()
     root.title("Maze Generator")
     root.geometry("520x300")
 
     def on_generate():
+        """Handle the Generate Maze button click event."""
+
         get_maze_size()
         grid, horizontal_walls, vertical_walls = initialize_maze()
         generate_maze(grid, horizontal_walls, vertical_walls)
@@ -120,6 +141,7 @@ def main_menu():
     tk.Button(root, text="Exit", command=on_exit, width=20).pack(pady=10)
 
     root.mainloop()
+
 
 if __name__ == "__main__":
     main_menu()
