@@ -33,8 +33,6 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 
 ## Struktura kodu
 
-### Główne funkcje
-
 1. **get\_maze\_size**:
 
    - Pobiera od użytkownika rozmiar labiryntu.
