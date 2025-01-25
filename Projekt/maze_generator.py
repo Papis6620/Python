@@ -121,7 +121,7 @@ def main_menu():
 
     root = tk.Tk()
     root.title("Maze Generator")
-    root.geometry("520x300")
+    root.geometry("280x140")
 
     def on_generate():
         """Handle the Generate Maze button click event."""
