@@ -31,10 +31,10 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
    - Labirynt można zapisać do pliku z rozszerzeniem `.maze`.
    - Aby zapisać labirynt do pliku, po zamknięciu okienka z wygenerowanym labiryntem należy wybrać opcję zapisz labirynt.
    - Plik .maze zawiera:
-    - WIDTH (int): Szerokość labiryntu
-    - HEIGHT (int): Wysokość labiryntu
-    - horizontal_walls (np.array): Tablicę zawierającą poziome ściany
-    - vertical_walls (np.array): Tablicę zawierającą pionove ściany
+       - WIDTH (int): Szerokość labiryntu
+       - HEIGHT (int): Wysokość labiryntu
+       - horizontal_walls (np.array): Tablicę zawierającą poziome ściany
+       - vertical_walls (np.array): Tablicę zawierającą pionove ściany
 
 4. **Wczytywanie labiryntu**
 
