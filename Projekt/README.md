@@ -29,6 +29,7 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 
    - Aplikacja oferuje prosty i intuicyjny interfejs z menu głównym, pozwalający na:
      - Generowanie nowego labiryntu
+     - Zapisane wygenerowanego labiryntu
      - Wczytywanie istniejeącego labiryntu
      - Zamknięcie aplikacji
 
