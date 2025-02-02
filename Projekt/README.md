@@ -19,7 +19,7 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 3. **Zapisywanie labiryntu**
 
    - Labirynt można zapisać do pliku z rozszerzeniem `.maze`.
-   - Aby zapisać labirynt do pliku, po zamknięciu okienka z wygenerowanym labiryntem należy wybrać opcję zapisz labirynt.
+   - Aby zapisać labirynt do pliku, należy wcześniej wygenerować labirynt.
 
 4. **Wczytywanie labiryntu**
 
