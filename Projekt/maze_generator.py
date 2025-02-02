@@ -11,6 +11,7 @@ LEFT, RIGHT, TOP, BOTTOM = (-1, 0), (1, 0), (0, -1), (0, 1)
 directions = [LEFT, RIGHT, TOP, BOTTOM]
 
 
+
 def get_maze_size():
     """Prompt the user to enter the maze dimensions."""
 
@@ -18,9 +19,13 @@ def get_maze_size():
     root = tk.Tk()
     root.withdraw()
 
-    WIDTH = simpledialog.askinteger("Maze size", "Enter maze width:", minvalue=5)
-    HEIGHT = simpledialog.askinteger("Maze size", "Enter maze height:", minvalue=5)
-
+    WIDTH = simpledialog.askinteger("Maze size",
+                                    "Enter maze width:",
+                                    minvalue=5)
+    HEIGHT = simpledialog.askinteger("Maze size",
+                                     "Enter maze height:",
+                                     minvalue=5)
+    root.destroy()
 
 def initialize_maze():
     """Initialize the maze with all walls intact."""
@@ -49,7 +54,10 @@ def generate_maze(grid, horizontal_walls, vertical_walls):
         for direction in directions:
             nextX, nextY = currentX + direction[0], currentY + direction[1]
 
-            if 0 <= nextX < WIDTH and 0 <= nextY < HEIGHT and grid[nextY][nextX] == 0:
+            if (0 <= nextX < WIDTH and
+                0 <= nextY < HEIGHT and
+                grid[nextY][nextX] == 0):
+
                 stack.append((currentX, currentY))
                 currentX, currentY = nextX, nextY
                 visited_cells += 1
@@ -96,8 +104,9 @@ def visualize_maze(horizontal_walls, vertical_walls):
 
 def save_maze(horizontal_walls, vertical_walls):
     """Save the maze to a .maze file."""
+    file_path = filedialog.asksaveasfilename(defaultextension=".maze",
+        filetypes=[("Maze Files", "*.maze")])
 
-    file_path = filedialog.asksaveasfilename(defaultextension=".maze", filetypes=[("Maze Files", "*.maze")])
     if file_path:
         with open(file_path, 'wb') as file:
             pickle.dump((WIDTH, HEIGHT, horizontal_walls, vertical_walls), file)
@@ -121,22 +130,38 @@ def main_menu():
 
     root = tk.Tk()
     root.title("Maze Generator")
-    root.geometry("280x140")
+    root.geometry("280x200")
 
     def on_generate():
         """Handle the Generate Maze button click event."""
 
         get_maze_size()
+        global grid, horizontal_walls, vertical_walls
         grid, horizontal_walls, vertical_walls = initialize_maze()
         generate_maze(grid, horizontal_walls, vertical_walls)
         visualize_maze(horizontal_walls, vertical_walls)
-        if messagebox.askyesno("Save Maze", "Do you want to save this maze?"):
+
+    def on_save():
+        try:
+            if ('horizontal_walls' not in globals() or
+                    'vertical_walls' not in globals()):
+                raise NameError("The maze has not been generated yet.")
+
             save_maze(horizontal_walls, vertical_walls)
 
+        except NameError as e:
+            messagebox.showerror("Error", str(e))
+
     def on_exit():
+        plt.close('all')
+        root.quit()
         root.destroy()
 
-    tk.Button(root, text="Generate Maze", command=on_generate, width=20).pack(pady=10)
+
+
+    tk.Button(root, text="Generate Maze",
+              command=on_generate, width=20).pack(pady=10)
+    tk.Button(root, text="Save Maze", command=on_save, width=20).pack(pady=10)
     tk.Button(root, text="Load Maze", command=load_maze, width=20).pack(pady=10)
     tk.Button(root, text="Exit", command=on_exit, width=20).pack(pady=10)
 
