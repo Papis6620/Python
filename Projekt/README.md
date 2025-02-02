@@ -10,7 +10,7 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 1. **Generowanie labiryntu**
 
    - Użytkownik podaje szerokość i wysokość labiryntu.
-   - Algorytm DFS w kodzie działa w następujący sposób:
+   - Labirynt generowany jest przy użyciu algorytmu DFS:
       
        - Zaczynamy od komórki (0,0), oznaczając ją jako odwiedzoną.
      
