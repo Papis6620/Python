@@ -10,17 +10,7 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 1. **Generowanie labiryntu**
 
    - Użytkownik podaje szerokość i wysokość labiryntu.
-   - Labirynt generowany jest przy użyciu algorytmu DFS:
-      
-       - Zaczynamy od komórki (0,0), oznaczając ją jako odwiedzoną.
-     
-       - Losujemy kolejność ruchów (góra, dół, lewo, prawo) i sprawdzamy, czy można przejść do sąsiedniej nieodwiedzonej komórki.
-     
-       - Jeśli można, przechodzimy do niej, usuwamy odpowiednią ścianę i dodajemy poprzednią pozycję do stosu.
-     
-       - Jeśli nie możemy się ruszyć, cofamy się po stosie, aż znajdziemy komórkę z dostępnym ruchem.
-     
-       - Proces trwa, aż wszystkie komórki zostaną odwiedzone.
+   - Labirynt generowany jest przy użyciu algorytmu DFS
 
 2. **Wizualizacja labiryntu**
 
@@ -30,11 +20,6 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 
    - Labirynt można zapisać do pliku z rozszerzeniem `.maze`.
    - Aby zapisać labirynt do pliku, po zamknięciu okienka z wygenerowanym labiryntem należy wybrać opcję zapisz labirynt.
-   - Plik .maze zawiera:
-       - WIDTH (int): Szerokość labiryntu
-       - HEIGHT (int): Wysokość labiryntu
-       - horizontal_walls (np.array): Tablicę zawierającą poziome ściany
-       - vertical_walls (np.array): Tablicę zawierającą pionove ściany
 
 4. **Wczytywanie labiryntu**
 
@@ -59,7 +44,17 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 
 3. **generate\_maze**:
 
-   - Generuje labirynt za pomocą algorytmu DFS.
+   - Generuje labirynt za pomocą algorytmu DFS:
+
+        - Zaczynamy od komórki (0,0), oznaczając ją jako odwiedzoną.
+     
+       - Losujemy kolejność ruchów (góra, dół, lewo, prawo) i sprawdzamy, czy można przejść do sąsiedniej nieodwiedzonej komórki.
+     
+       - Jeśli można, przechodzimy do niej, usuwamy odpowiednią ścianę i dodajemy poprzednią pozycję do stosu.
+     
+       - Jeśli nie możemy się ruszyć, cofamy się po stosie, aż znajdziemy komórkę z dostępnym ruchem.
+     
+       - Proces trwa, aż wszystkie komórki zostaną odwiedzone.
 
 4. **visualize\_maze**:
 
@@ -68,6 +63,11 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 5. **save\_maze**:
 
    - Zapisuje labirynt do pliku `.maze`.
+   - Plik .maze zawiera:
+       - WIDTH (int): Szerokość labiryntu
+       - HEIGHT (int): Wysokość labiryntu
+       - horizontal_walls (np.array): Tablicę zawierającą poziome ściany
+       - vertical_walls (np.array): Tablicę zawierającą pionove ściany
 
 6. **load\_maze**:
 
