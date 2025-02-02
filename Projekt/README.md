@@ -45,7 +45,6 @@ Aplikacja generuje labirynty przy użyciu algorytmu DFS. Labirynty mogą być wi
 3. **generate\_maze**:
 
    - Generuje labirynt za pomocą algorytmu DFS:
-
        - Zaczynamy od komórki (0,0), oznaczając ją jako odwiedzoną.
        - Losujemy kolejność ruchów (góra, dół, lewo, prawo) i sprawdzamy, czy można przejść do sąsiedniej nieodwiedzonej komórki.
        - Jeśli można, przechodzimy do niej, usuwamy odpowiednią ścianę i dodajemy poprzednią pozycję do stosu.
